@@ -1,0 +1,31 @@
+@use '~@angular/material' as mat;
+
+$dark-primary: mat.define-palette(mat.$blue-palette);
+$dark-accent: mat.define-palette(mat.$amber-palette);
+
+$dark-theme: mat.define-dark-theme($dark-primary, $dark-accent);
+
+// Insert custom background color
+$main-bg: #424242;
+$background: map-get($dark-theme, background);
+$background: map_merge(
+  $background,
+  (
+    background: #353535,
+    card: $main-bg,
+    raised-button: $main-bg,
+    dialog: $main-bg,
+  )
+);
+
+$dark-theme: map_merge(
+  $dark-theme,
+  (
+    background: $background,
+  )
+);
+
+// Material theme is wrapped by a parent class
+.dark {
+  @include mat.all-component-themes($dark-theme);
+}

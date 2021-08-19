@@ -1,0 +1,17 @@
+@import 'styles/mixins';
+
+:host {
+  display: flex;
+  font-size: 13px;
+}
+
+.menu-item {
+  @include flex-item();
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  .mat-icon {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,41 @@
+<mat-toolbar [ngClass]="layout">
+  <ng-container *ngIf="layout === layouts.MODERN; else sidebarBtn">
+    <span class="logo">CMSCOM</span>
+
+    <cms-menu-list [menu]="menu"></cms-menu-list>
+  </ng-container>
+
+  <ng-template #sidebarBtn>
+    <button mat-icon-button
+            (click)="toggleSidebar.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </ng-template>
+
+  <div class="flex-grow"></div>
+
+  <button mat-icon-button
+          [satPopoverAnchor]="popover"
+          (click)="popover.toggle()">
+    <mat-icon>settings</mat-icon>
+  </button>
+
+  <button mat-icon-button
+          [matMenuTriggerFor]="userNav.menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <cms-user-nav #userNav
+                (logout)="logout.emit()"></cms-user-nav>
+</mat-toolbar>
+
+<sat-popover #popover
+             horizontalAlign="end"
+             verticalAlign="below"
+             [autoFocus]="false"
+             [hasBackdrop]="true">
+  <cms-layout-settings [layout]="layout"
+                       [theme]="theme"
+                       (changeLayout)="changeLayout.emit($event)"
+                       (changeTheme)="changeTheme.emit($event)"></cms-layout-settings>
+</sat-popover>

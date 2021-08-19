@@ -1,0 +1,18 @@
+<ng-container *ngFor="let menuItem of menu">
+  <div matRipple
+       [matMenuTriggerFor]="menuItems"
+       class="menu-item hover:bg-gray-700 hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10">
+    <mat-icon>{{menuItem.icon}}</mat-icon>
+    <span>{{menuItem.name}}</span>
+  </div>
+
+  <mat-menu #menuItems="matMenu">
+    <a *ngFor="let link of menuItem.items"
+       mat-menu-item
+       routerLinkActive="active"
+       [routerLink]="link.navigation">
+      <mat-icon>{{link.icon}}</mat-icon>
+      <span>{{link.name}}</span>
+    </a>
+  </mat-menu>
+</ng-container>

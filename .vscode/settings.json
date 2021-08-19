@@ -1,0 +1,22 @@
+{
+  "files.eol": "\n",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "html.format.enable": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "prettier.configPath": ".prettierrc",
+  "prettier.requireConfig": true,
+  "typescriptHero.imports.organizeOnSave": true,
+  "typescriptHero.imports.removeTrailingIndex": false,
+  "typescriptHero.imports.grouping": ["Plains", "Modules", "Workspace", "Remaining"],
+  "typescriptHero.imports.multiLineTrailingComma": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "cSpell.words": ["cmscom", "ncstate", "preconnect", "tailwindcss", "titlecase"]
+}

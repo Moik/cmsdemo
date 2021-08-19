@@ -1,0 +1,11 @@
+@use '~@angular/material' as mat;
+
+$light-primary: mat.define-palette(mat.$blue-palette);
+$light-accent: mat.define-palette(mat.$amber-palette);
+
+$light-theme: mat.define-light-theme($light-primary, $light-accent);
+
+// Material theme is wrapped by a parent class
+.light {
+  @include mat.all-component-themes($light-theme);
+}

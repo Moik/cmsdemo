@@ -1,0 +1,31 @@
+<div class="sidebar-container mat-toolbar">
+	<div class="logo">
+		CMSCOM
+	</div>
+	<ng-container *ngFor="let menuItem of menu">
+		<div matRipple
+				 class="menu-item hover:bg-gray-700 hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10"
+				 (click)="toggleSubMenu(menuItem?.items)">
+			<mat-icon>{{menuItem.icon}}</mat-icon>
+		</div>
+	</ng-container>
+</div>
+
+<ng-container *ngIf="showSubMenu">
+	<div [@slideInOutAnimation]
+			 class="sub-menu mat-toolbar">
+		<ul>
+			<li *ngFor="let subMenuItem of subMenu">
+				<a [routerLink]="subMenuItem.navigation"
+					 class="sub-menu-item hover:bg-gray-700 hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10"
+					 (click)="toggleSubMenu()">
+					<mat-icon>{{subMenuItem.icon}}</mat-icon>
+					<span>{{subMenuItem.name}}</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div [@showInOutAnimation]
+			 class="overlay"
+			 (click)="toggleSubMenu()"></div>
+</ng-container>

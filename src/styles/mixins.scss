@@ -1,0 +1,20 @@
+@mixin full-size {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin mat-icon-size($size) {
+  height: $size;
+  width: $size;
+  font-size: $size;
+  line-height: $size;
+}
+
+@mixin flex-item($justify: flex-start, $align: center, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

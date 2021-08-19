@@ -1,0 +1,36 @@
+.main-layout-container {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 100vh;
+}
+
+.main-layout-content {
+  position: relative;
+  display: block;
+  padding: 1em;
+  overflow: auto;
+  z-index: 1;
+}
+
+.mat-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.main-layout-content-wrap {
+  width: 100%;
+  &.sidebar-opened {
+    width: calc(100% - 80px);
+  }
+  &.animated {
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+cms-sidebar {
+  margin-left: -80px;
+  transition: margin 0.25s ease-in-out;
+  &.opened {
+    margin-left: 0;
+  }
+}
